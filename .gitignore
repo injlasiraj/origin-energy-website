@@ -1,0 +1,11 @@
+node_modules/
+dist/
+playwright-report/
+test-results/
+downloads/
+*.pdf
+.env
+.DS_Store
+
+# BDD generated files
+.features-gen/

@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  playwright-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: origin-energy-tests
+    volumes:
+      # Mount test output directories for access after tests complete
+      - ./test-results:/app/test-results
+      - ./playwright-report:/app/playwright-report
+      - ./downloads:/app/downloads
+    environment:
+      - CI=true
+      - NODE_ENV=test
+    # Increase shared memory size for Chromium
+    shm_size: '2gb'
+    # Network mode for better DNS resolution
+    network_mode: bridge

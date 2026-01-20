@@ -1,0 +1,11 @@
+{
+  "gasPlan": {
+    "address": "17 Bolinda Road, Balwyn North, VIC 3104",
+    "expectedPlanType": "Gas"
+  },
+  "addressSearch": [
+    {
+      "address": "17 Bolinda Road, Balwyn North, VIC 3104"
+    }
+  ]
+}
