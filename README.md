@@ -1,6 +1,6 @@
-# Origin Energy - Playwright BDD Test
+# Origin Energy - Playwright Tests
 
-Automated UI tests for the Origin Energy pricing website using Playwright BDD with TypeScript.
+Automated UI tests for the Origin Energy pricing website using Playwright with TypeScript.
 
 ## Test Scenario
 
@@ -21,8 +21,7 @@ The test performs the following steps:
 
 ```
 origin-energy-test/
-├── features/              # BDD Feature files (Gherkin syntax)
-├── steps/                 # Step definitions
+├── tests/                 # Playwright test specs
 ├── pages/                 # Page Object Model classes
 ├── testdata/              # Test data (addresses.json)
 ├── playwright.config.ts   # Playwright configuration
@@ -86,6 +85,9 @@ npm test
 ```bash
 # Debug mode
 npm run test:debug
+
+# UI mode (interactive test runner)
+npm run test:ui
 
 # View HTML report
 npm run test:report

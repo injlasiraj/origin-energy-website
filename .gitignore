@@ -6,6 +6,3 @@ downloads/
 *.pdf
 .env
 .DS_Store
-
-# BDD generated files
-.features-gen/

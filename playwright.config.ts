@@ -1,29 +1,16 @@
 import { defineConfig, devices } from '@playwright/test';
-import { defineBddConfig } from 'playwright-bdd';
 
 /**
- * =============================================================================
- * PLAYWRIGHT BDD CONFIGURATION
- * =============================================================================
+ * Playwright Configuration for Origin Energy UI Automation Tests
  *
- * This configuration sets up Playwright with BDD (Behavior-Driven Development)
- * using Cucumber-style feature files and step definitions.
- *
- * Key BDD components:
- * - Feature files: features/*.feature (Gherkin syntax)
- * - Step definitions: steps/*.ts
+ * Key components:
+ * - Test specs: tests/*.spec.ts
  * - Page Objects: pages/*.ts
+ * - Test data: testdata/*.json
  */
 
-// BDD Configuration - generates test files from feature files
-const testDir = defineBddConfig({
-  paths: ['features/**/*.feature'],
-  steps: 'steps/**/*.ts',
-  importTestFrom: 'steps/fixtures.ts',
-});
-
 export default defineConfig({
-  testDir,
+  testDir: './tests',
   fullyParallel: false,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -40,7 +27,7 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    headless: !!process.env.CI, // Headless in CI/Docker, headed locally
+    headless: !!process.env.CI,
   },
 
   projects: [
@@ -48,7 +35,7 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    // TODO: Uncomment to add more browser support
+    // Uncomment to add more browser support
     // {
     //   name: 'firefox',
     //   use: { ...devices['Desktop Firefox'] },
@@ -60,8 +47,8 @@ export default defineConfig({
   ],
 
   // Timeouts
-  timeout: 60000, // 60 seconds per test
+  timeout: 60000,
   expect: {
-    timeout: 10000, // 10 seconds for assertions
+    timeout: 10000,
   },
 });

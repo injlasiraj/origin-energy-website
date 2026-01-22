@@ -1,23 +1,21 @@
 {
   "name": "origin-energy-automation",
   "version": "1.0.0",
-  "description": "Playwright BDD UI automation tests for Origin Energy website",
+  "description": "Playwright UI automation tests for Origin Energy website",
   "main": "index.js",
   "scripts": {
-    "bddgen": "bddgen",
-    "test": "npm run bddgen && playwright test",
-    "test:headed": "npm run bddgen && playwright test --headed",
-    "test:debug": "npm run bddgen && playwright test --debug",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
     "test:report": "playwright show-report"
   },
-  "keywords": ["playwright", "automation", "testing", "bdd", "cucumber"],
+  "keywords": ["playwright", "automation", "testing"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@cucumber/cucumber": "^10.3.1",
-    "@playwright/test": "^1.40.0",
+    "@playwright/test": "1.57.0",
     "@types/node": "^20.10.0",
-    "playwright-bdd": "^6.0.0",
     "typescript": "^5.3.0"
   },
   "dependencies": {
