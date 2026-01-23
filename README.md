@@ -1,32 +1,41 @@
-# Origin Energy - Playwright Tests
+# Origin Energy Pricing Tests
 
-Automated UI tests for the Origin Energy pricing website using Playwright with TypeScript.
+Automated end-to-end UI tests for the Origin Energy pricing website using Playwright with TypeScript. This project validates the pricing page functionality including address search, plan filtering, and PDF verification.
 
-## Test Scenario
+## Features
 
-The test performs the following steps:
+- Playwright with TypeScript for reliable browser automation
+- Page Object Model (POM) design pattern for maintainable tests
+- PDF content verification using pdf-parse
+- Docker support for containerized test execution
+- HTML test reports with screenshots and traces
 
-1. Navigate to the pricing page
-2. Search for an address
-3. Select the address from the suggestion list
-4. Verify that plans are displayed
-5. Uncheck the Electricity checkbox
-6. Verify that plans are still displayed
-7. Click on the plan link in the Plan BPID/EFS column
-8. Verify that the plan details page opens in a new tab
-9. Download the plan PDF
-10. Assert that the PDF content confirms it is a Gas plan
+## Test Coverage
+
+The test suite validates the following user journey:
+
+1. Navigate to the Origin Energy pricing page
+2. Search for an address and select from suggestions
+3. Verify energy plans are displayed
+4. Filter plans by unchecking Electricity (Gas only)
+5. Open plan details in a new tab via BPID/EFS link
+6. Download and verify the plan PDF contains expected content
 
 ## Project Structure
 
 ```
 origin-energy-test/
-├── tests/                 # Playwright test specs
+├── tests/                 # Playwright test specifications
+│   └── pricing.spec.ts    # Pricing page test suite
 ├── pages/                 # Page Object Model classes
-├── testdata/              # Test data (addresses.json)
+│   ├── BasePage.ts        # Base page with common methods
+│   └── PricingPage.ts     # Pricing page interactions
+├── testdata/              # Test data files
+│   └── addresses.json     # Test addresses and expected values
 ├── playwright.config.ts   # Playwright configuration
-├── Dockerfile             # Docker configuration
-└── docker-compose.yml     # Docker Compose configuration
+├── tsconfig.json          # TypeScript configuration
+├── Dockerfile             # Docker image definition
+└── docker-compose.yml     # Docker Compose setup
 ```
 
 ## Option 1: Run Locally
